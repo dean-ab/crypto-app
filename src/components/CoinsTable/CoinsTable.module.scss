@@ -1,0 +1,62 @@
+.row {
+  transition: all 0.1s ease-in;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #1a1a1a;
+  }
+}
+
+.coinNameWithLogo {
+  display: flex;
+  align-items: center;
+}
+
+.coinName {
+  margin-left: 20px;
+  &::after {
+    content: '•';
+    margin-left: 6px;
+  }
+}
+
+.coinIcon {
+  height: 2rem;
+  width: 2rem;
+}
+
+.symbol {
+  margin-left: 6px;
+  color: #787777;
+  font-size: 14px;
+}
+
+.priceChangeContainer {
+  display: flex;
+}
+
+.change {
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  font-weight: 500;
+  line-height: 1.5;
+  width: 75px;
+}
+
+.positive {
+  background-color: rgba(52, 199, 89, 0.1);
+  color: var(--green);
+}
+
+.negative {
+  background-color: rgba(255, 53, 53, 0.1);
+  color: var(--red);
+}
+
+.coinGraph {
+}

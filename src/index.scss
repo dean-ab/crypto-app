@@ -1,0 +1,16 @@
+:root {
+  --black: #000000;
+  --grey: #404040;
+  --white: white;
+  --green: #49b334;
+  --red: #f02934;
+}
+
+body {
+  margin: 0;
+  color: var(--white);
+  background-color: var(--black);
+  font-family: Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
