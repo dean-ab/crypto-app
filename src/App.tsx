@@ -1,11 +1,15 @@
-import { useEffect, useState } from 'react';
-import { fetchCoins } from './api';
-import './App.scss';
-import { CoinsTable } from './components/CoinsTable';
-import { Coin } from './types';
-import Button from '@mui/material/Button';
-
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Outlet,
+  useParams,
+  Link,
+} from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { Dashboard } from './components/Dashboard';
+import { History } from './routes/History';
+import styles from './App.module.scss';
 
 const darkTheme = createTheme({
   palette: {
@@ -13,25 +17,33 @@ const darkTheme = createTheme({
   },
 });
 
+const Navbar = () => {
+  return (
+    <nav className={styles.navbar}>
+      <Link to="/">
+        <span className={styles.navTitle}>My Crypto App</span>
+      </Link>
+      <div className={styles.navLinks}>
+        <Link className={styles.link} to="/history">
+          Transaction History
+        </Link>
+      </div>
+    </nav>
+  );
+};
+
 function App() {
-  const [coins, setCoins] = useState<Coin[]>([]);
-
-  useEffect(() => {
-    fetchCoins().then((res) => setCoins(res));
-  }, []);
-
   return (
     <ThemeProvider theme={darkTheme}>
-      <main
-        style={{
-          display: 'grid',
-          placeItems: 'center',
-        }}
-      >
-        <h1>My Crypto App</h1>
-        <CoinsTable coins={coins} />
-        <Button>LOAD MORE COINS</Button>
-      </main>
+      <BrowserRouter>
+        <Navbar />
+        <main style={{ marginTop: 40 }}>
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/history" element={<History />} />
+          </Routes>
+        </main>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

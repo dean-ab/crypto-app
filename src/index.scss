@@ -6,6 +6,11 @@
   --red: #f02934;
 }
 
+a {
+  text-decoration: initial;
+  color: initial;
+}
+
 body {
   margin: 0;
   color: var(--white);

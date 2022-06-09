@@ -7,9 +7,9 @@ export function fetchCoins(
     limit = 10,
     currency = 'USD',
   }: {
-    offset: number;
-    limit: number;
-    currency: Currency;
+    offset?: number;
+    limit?: number;
+    currency?: Currency;
   } = { offset: 0, limit: 10, currency: 'USD' }
 ): Promise<Coin[]> {
   return request

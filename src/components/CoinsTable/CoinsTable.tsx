@@ -18,12 +18,13 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import styles from './CoinsTable.module.scss';
 import classnames from 'classnames';
 import { prettifyNumber } from '../../utils';
+import { Link } from 'react-router-dom';
 
 interface Props {
   coins: Coin[];
 }
 
-const HeaderTableCell = styled(TableCell)(({ theme }) => ({
+const HeaderTableCell = styled(TableCell)(() => ({
   [`&.${tableCellClasses.head}`]: {
     // backgroundColor: theme.palette.common.black,
     color: '#787777',
@@ -51,7 +52,7 @@ export const CoinsTable: React.FC<Props> = ({ coins }) => {
         <TableBody>
           {coins.map((coin) => (
             <TableRow
-              key={coin.rank}
+              key={coin.id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               className={styles.row}
             >
@@ -110,7 +111,11 @@ const CoinNameWithLogo: React.FC<{ coin: Coin }> = ({ coin }) => {
   return (
     <div className={styles.coinNameWithLogo}>
       <img className={styles.coinIcon} src={coin.icon} />
-      <span className={styles.coinName}>{coin.name}</span>
+
+      <span onClick={() => console.log('onClick')} className={styles.coinName}>
+        {coin.name}
+      </span>
+
       <span className={styles.symbol}>{coin.symbol}</span>
     </div>
   );

@@ -2,7 +2,6 @@
   transition: all 0.1s ease-in;
 
   &:hover {
-    cursor: pointer;
     background-color: #1a1a1a;
   }
 }
@@ -14,9 +13,14 @@
 
 .coinName {
   margin-left: 20px;
-  &::after {
-    content: '•';
-    margin-left: 6px;
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: var(--white);
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
   }
 }
 
@@ -29,6 +33,11 @@
   margin-left: 6px;
   color: #787777;
   font-size: 14px;
+
+  &::before {
+    content: '•';
+    margin-right: 6px;
+  }
 }
 
 .priceChangeContainer {
@@ -56,7 +65,4 @@
 .negative {
   background-color: rgba(255, 53, 53, 0.1);
   color: var(--red);
-}
-
-.coinGraph {
 }

@@ -6,9 +6,7 @@ import App from './App';
 import './index.scss';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <StyledEngineProvider injectFirst>
-      <App />
-    </StyledEngineProvider>
-  </React.StrictMode>
+  <StyledEngineProvider injectFirst>
+    <App />
+  </StyledEngineProvider>
 );
